@@ -72,13 +72,14 @@ def scrape_movies_by_year(year):
 # Function to display movies to the user
 def display(movies):
     print()
-    print(f"Movies released in {year_input}:")
+    print(f"Films released in {year_input}:")
     print()
     for movie in movies:
         print(f"Rank: {movie['Rank']}")
         print(f"Peak: {movie['Peak']}")
         print(f"Title: {movie['Title']}")
         print(f"Gross Revenue: {movie['Gross']}")
+        print(f"Year: {movie['Year']}")
         print()
 
 # Function to write data to Excel
@@ -87,12 +88,12 @@ def write_to_excel(movies, filename='movies_data.xlsx'):
     sheet = wb.active
 
     # Write header row
-    header = ['Rank', 'Peak', 'Title', 'Gross Revenue']
+    header = ['Rank', 'Peak', 'Title', 'Gross Revenue', 'Year']
     sheet.append(header)
 
     # Write data rows
     for movie in movies:
-        row_data = [movie['Rank'], movie['Peak'], movie['Title'], movie['Gross']]
+        row_data = [movie['Rank'], movie['Peak'], movie['Title'], movie['Gross'], movie['Year']]
         sheet.append(row_data)
 
     wb.save(filename)
